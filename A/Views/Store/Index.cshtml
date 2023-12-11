@@ -1,0 +1,93 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "StoreDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!Doctype html>
+<html>
+<head>
+    <title></title>
+ @*    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/st.css" type="text/css" /> *@
+    <style>
+        .Execute{
+            width:100px;
+            border:ridge 2px;
+            color:white;
+            padding: 4px;
+            background-color: #49a7e7;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 13px 13px;
+        }
+
+        .Lab {
+            clear: both;
+            display: inline-block;
+            height: 26px;
+            margin: 0% 0% 1% 6%;
+            width: 12%;
+            font-size: 14px;
+            color: #333;
+            font-weight:bold;
+        }
+
+        .Txt {
+            display: inline-block;
+            width: 162px;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h3>Stores Data</h3>
+    <label for="fromDate" class="Lab">FROM:</label>
+    <input type="date" id="fromDate" name="fromDate" class="Txt" />
+    <label for="toDate" class="Lab">To:</label>
+    <input type="date" id="toDate" name="toDate" class="Txt" />
+    <br />
+    <div>
+        <br />
+        <label for="items" class="Lab">Select Items:</label>
+        <select class="Txt">
+            <option value="option1" class="Txt">option 1 </option>
+            <option value="option2" class="Txt">option 2 </option>
+            <option value="option3" class="Txt">option 3 </option>
+            <option value="option4" class="Txt">option 4 </option>
+        </select>
+    </div>
+    <p>
+        <br />
+        <button class="Execute">Execute</button>
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Location</th>
+            <th>Price Category</th>
+            <th>Franchise</th>
+            <th>Goverment</th> 
+
+        </tr>
+
+        @for (int i = 0; i < Model.Rows.Count; i++)
+        {
+            <tr>
+                <td>@Model.Rows[i][0]</td>
+                <td>@Model.Rows[i][1]</td>
+                <td>@Model.Rows[i][2]</td>
+                <td>@Model.Rows[i][3]</td>
+                <td>@Model.Rows[i][4]</td> 
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+
